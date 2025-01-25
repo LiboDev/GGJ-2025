@@ -605,7 +605,7 @@ GameObject:
   - component: {fileID: 313954778}
   m_Layer: 3
   m_Name: Spear
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_ComponentVersion: 2
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 0.75
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
@@ -1145,7 +1145,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightOuterRadius: 30
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -1390,7 +1390,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 3
+  m_LinearDamping: 2
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -1452,15 +1452,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854efd83da9a1f74d83e4631cd352274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  spearAttackTime: 0.1
+  moveSpeed: 2.5
+  rotateDelay: 1
+  spearAttackTime: 1
   spearSpeed: 10
   grappleSpeed: 10
-  knifeAttackTime: 0.25
+  knifeAttackTime: 0.5
   spearThrown: 0
   grappling: 0
   spear: {fileID: 313954771}
-  knife: {fileID: 0}
+  knife: {fileID: 7360290118693052540, guid: 87c2027486429744ea0b09f734aabc3a, type: 3}
   spearController: {fileID: 313954773}
 --- !u!212 &1870974110
 SpriteRenderer:

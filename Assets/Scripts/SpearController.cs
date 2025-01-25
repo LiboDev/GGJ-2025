@@ -45,7 +45,6 @@ public class SpearController : MonoBehaviour
 
         rb.linearVelocity = transform.right * speed * 2f;
 
-        yield return new WaitForSeconds(0.1f);
         bc.enabled = true;
 
         yield return new WaitUntil(() => rb.linearVelocity.magnitude < 0.1f);
@@ -113,23 +112,28 @@ public class SpearController : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        enemy.position = transform.position;
-        enemy.parent = transform;
-
-        while(Vector2.Distance(transform.position, playerTransform.position) > 3)
+        if(Vector2.Distance(transform.position, playerTransform.position) > 2)
         {
-            Vector2 direction = playerTransform.position - transform.position;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(new Vector3(0,0,angle));
+            enemy.position = transform.position;
+            enemy.parent = transform;
 
-            transform.position = Vector2.Lerp(transform.position, playerTransform.position, Time.deltaTime);
-            yield return null;
+            while(Vector2.Distance(transform.position, playerTransform.position) > 2)
+            {
+                Vector2 direction = playerTransform.position - transform.position;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(new Vector3(0,0,angle));
+
+                transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime); ;
+                yield return null;
+            }
+
+            if(enemy != null)
+            {
+                enemy.parent = null;
+            }
         }
 
-        if(enemy != null)
-        {
-            enemy.parent = null;
-        }
+
 
         StartCoroutine(Return());
     }
@@ -143,7 +147,7 @@ public class SpearController : MonoBehaviour
         {
             Vector2 direction = playerTransform.position - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180f+angle));
 
             transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
             yield return null;

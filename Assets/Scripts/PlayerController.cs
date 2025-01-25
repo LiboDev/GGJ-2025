@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     //stats
     public float moveSpeed = 5f;
+    public float rotateDelay = 2;
 
     public float spearAttackTime;
     public float spearSpeed;
@@ -18,6 +19,8 @@ public class PlayerController : MonoBehaviour
     //tracking
     public bool spearThrown = false;
     public bool grappling = false;
+
+    private float timeElapsed = 0f;
 
     //scene
     private Vector3 mousePos;
@@ -45,9 +48,17 @@ public class PlayerController : MonoBehaviour
         {
             RotateTowardsCursor();
 
-            if (Input.GetMouseButton(1))
+            if (Input.GetMouseButton(1) && grappling == false)
             {
-                rb.linearVelocity = transform.right * moveSpeed;
+                Vector2 vel = Vector2.Lerp(rb.linearVelocity, transform.right * moveSpeed, timeElapsed/rotateDelay);
+                rb.linearVelocity = vel;
+
+                timeElapsed += Time.deltaTime;
+
+                if (timeElapsed > rotateDelay)
+                {
+                    timeElapsed = 0;
+                }
             }
 
             if(Input.GetMouseButton(0) && grappling == false)
@@ -62,13 +73,13 @@ public class PlayerController : MonoBehaviour
 
                     yield return new WaitForSeconds(spearAttackTime);
                 }
-/*                else
+                else
                 {
                     GameObject knifeObject = Instantiate(knife, transform.position + Vector3.right, Quaternion.identity);
                     yield return new WaitForSeconds(knifeAttackTime);
-                }*/
+                }
 
-                
+
             }
 
             yield return null;
