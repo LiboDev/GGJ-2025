@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy Detection Circle
+  - Enemy
+  - Terrain
   layers:
   - Default
   - TransparentFX

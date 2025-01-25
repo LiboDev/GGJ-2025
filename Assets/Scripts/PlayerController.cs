@@ -9,16 +9,28 @@ public class PlayerController : MonoBehaviour
     //stats
     public float moveSpeed = 5f;
 
+    public float spearAttackTime;
+    public float spearSpeed;
+    public float grappleSpeed;
+
+    public float knifeAttackTime;
+
+    //tracking
+    public bool spearThrown = false;
+    public bool grappling = false;
+
     //scene
     private Vector3 mousePos;
+
+    public GameObject spear;
+    public GameObject knife;
+    public SpearController spearController;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
-        rb.linearDamping = 3f;
-
-        StartCoroutine(Move());
+        StartCoroutine(Action());
     }
 
     void Update()
@@ -27,19 +39,36 @@ public class PlayerController : MonoBehaviour
         mousePos.z = 0f;
     }
 
-    private IEnumerator Move()
+    private IEnumerator Action()
     {
         while (true)
         {
             RotateTowardsCursor();
 
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(1))
             {
                 rb.linearVelocity = transform.right * moveSpeed;
             }
-            else
-            {
 
+            if(Input.GetMouseButton(0) && grappling == false)
+            {
+                //attack
+                if(spearThrown == false)
+                {
+                    StartCoroutine(spearController.Throw(spearSpeed));
+
+
+                    spearThrown = true;
+
+                    yield return new WaitForSeconds(spearAttackTime);
+                }
+/*                else
+                {
+                    GameObject knifeObject = Instantiate(knife, transform.position + Vector3.right, Quaternion.identity);
+                    yield return new WaitForSeconds(knifeAttackTime);
+                }*/
+
+                
             }
 
             yield return null;
@@ -53,5 +82,26 @@ public class PlayerController : MonoBehaviour
         // Rotate the player to face the direction
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+    }
+
+    public IEnumerator Grapple()
+    {
+        yield return new WaitForSeconds(0.25f);
+
+        grappling = true;
+
+        while (Vector2.Distance(transform.position, spear.transform.position) > 1)
+        {
+            Vector2 direction = spear.transform.position - transform.position;
+            direction.Normalize();
+
+            rb.linearVelocity = direction * grappleSpeed;
+            yield return null;
+        }
+
+        grappling = false;
+        spearThrown = false;
+
+        StartCoroutine(spearController.Return());
     }
 }
