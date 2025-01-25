@@ -11,6 +11,10 @@ public class TerrainGeneration : MonoBehaviour
 
     public int magnitude = 10;
 
+    public float threshold = 0.5f;
+    public float falloff;
+    //1 minimum - 10 super high
+
     public Tilemap tileMap;
     public Tile tile;
 
@@ -33,15 +37,15 @@ public class TerrainGeneration : MonoBehaviour
                 Vector2Int pos = new Vector2Int(x - width / 2, y - height / 2);
 
 
-/*                if(Vector2.Distance(Vector2.zero,pos) > 48f)
+                if (Vector2.Distance(Vector2.zero, pos) > width/2 - 2)
                 {
                     SpawnWalls(pos.x, pos.y);
-                }*/
-                if(Vector2.Distance(Vector2.zero, pos) < 10f)
+                }
+                if (Vector2.Distance(Vector2.zero, pos) < 10f)
                 {
 
                 }
-                else if (noise > Mathf.Min(0.5f, Vector2.Distance(Vector2.zero, pos)/(30)))
+                else if (noise > Mathf.Min(threshold, (width/falloff)/Vector2.Distance(Vector2.zero, pos))     )
                 {
                     SpawnWalls(pos.x, pos.y);
                 }
