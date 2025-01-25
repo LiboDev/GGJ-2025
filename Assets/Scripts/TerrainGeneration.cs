@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
+using Pathfinding;
+using System.Collections;
 
 public class TerrainGeneration : MonoBehaviour
 {
@@ -15,7 +17,7 @@ public class TerrainGeneration : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GenerateNoise();
+        StartCoroutine(GenerateTerrain());
     }
 
     private void GenerateNoise()
@@ -45,6 +47,8 @@ public class TerrainGeneration : MonoBehaviour
                 }
             }
         }
+
+        //AstarPath.active.Scan();
     }
 
     private void SpawnWalls(int x, int y)
@@ -61,5 +65,15 @@ public class TerrainGeneration : MonoBehaviour
             Scene currentScene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(currentScene.name);
         }
+    }
+
+    // Wait for terrain generation to be finished, then rescan the pathfinding graph
+    private IEnumerator GenerateTerrain()
+    {
+        GenerateNoise();
+
+        yield return new WaitForSeconds(0.1f);
+
+        AstarPath.active.Scan();
     }
 }
