@@ -46,5 +46,26 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Environment
+    uniqueID: 1777201501
+    locked: 0
+  - name: LowFX
+    uniqueID: 602671281
+    locked: 0
+  - name: Entities
+    uniqueID: 3509590595
+    locked: 0
+  - name: Projectiles
+    uniqueID: 563151953
+    locked: 0
+  - name: Terrain
+    uniqueID: 3913281425
+    locked: 0
+  - name: Overlay
+    uniqueID: 124195053
+    locked: 0
+  - name: UI
+    uniqueID: 480462529
+    locked: 0
   m_RenderingLayers:
   - Default

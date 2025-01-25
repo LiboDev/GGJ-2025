@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     //transform
     private Rigidbody2D rb;
+    public Transform hand;
 
     //stats
     public float moveSpeed = 5f;
@@ -50,21 +51,29 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetMouseButton(1) && grappling == false)
             {
-                Vector2 vel = Vector2.Lerp(rb.linearVelocity, transform.right * moveSpeed, timeElapsed/rotateDelay);
-                rb.linearVelocity = vel;
-
-                timeElapsed += Time.deltaTime;
-
-                if (timeElapsed > rotateDelay)
+                if(rb.linearVelocity.magnitude > moveSpeed)
                 {
-                    timeElapsed = 0;
+                    Vector2 vel = Vector2.Lerp(rb.linearVelocity, transform.right * moveSpeed, timeElapsed / rotateDelay);
+                    rb.linearVelocity = vel;
+
+                    timeElapsed += Time.deltaTime;
+
+                    if (timeElapsed > rotateDelay)
+                    {
+                        timeElapsed = 0;
+                    }
                 }
+                else
+                {
+                    rb.linearVelocity = transform.right * moveSpeed;
+                }
+
             }
 
-            if(Input.GetMouseButton(0) && grappling == false)
+            if(Input.GetMouseButton(0))
             {
                 //attack
-                if(spearThrown == false)
+                if(spearThrown == false && grappling == false)
                 {
                     StartCoroutine(spearController.Throw(spearSpeed));
 
@@ -75,7 +84,9 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    GameObject knifeObject = Instantiate(knife, transform.position + Vector3.right, Quaternion.identity);
+                    GameObject knifeObject = Instantiate(knife, hand.position, transform.rotation);
+                    knifeObject.transform.parent = hand;
+
                     yield return new WaitForSeconds(knifeAttackTime);
                 }
 

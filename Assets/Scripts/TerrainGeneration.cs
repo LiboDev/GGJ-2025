@@ -16,7 +16,7 @@ public class TerrainGeneration : MonoBehaviour
     //1 minimum - 10 super high
 
     public Tilemap tileMap;
-    public Tile tile;
+    public RuleTile tile;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,7 +41,7 @@ public class TerrainGeneration : MonoBehaviour
                 {
                     SpawnWalls(pos.x, pos.y);
                 }
-                if (Vector2.Distance(Vector2.zero, pos) < 10f)
+                if (Vector2.Distance(Vector2.zero, pos) < 5f)
                 {
 
                 }
