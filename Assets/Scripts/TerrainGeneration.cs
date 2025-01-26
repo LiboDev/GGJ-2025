@@ -21,6 +21,8 @@ public class TerrainGeneration : MonoBehaviour
     public Tilemap grassMap;
     public Tile grassTile;
 
+    public GameObject enemySpawner;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,10 +41,16 @@ public class TerrainGeneration : MonoBehaviour
                 float noise = Mathf.PerlinNoise((float)(x + randomizerX) / width * magnitude, (float)(y + randomizerY) / height * magnitude);
                 Vector2Int pos = new Vector2Int(x - width / 2, y - height / 2);
 
+                if (noise < 0.05f && Vector2.Distance(Vector2.zero, pos) < width / 2 - 2)
+                {
+                    Instantiate(enemySpawner, new Vector3(pos.x, pos.y, 0), Quaternion.identity);
+                }
 
                 if (Vector2.Distance(Vector2.zero, pos) > width/2 - 2)
                 {
                     SpawnWalls(pos.x, pos.y);
+
+
                 }
                 if (Vector2.Distance(Vector2.zero, pos) < 5f)
                 {
@@ -52,6 +60,8 @@ public class TerrainGeneration : MonoBehaviour
                 {
                     SpawnWalls(pos.x, pos.y);
                 }
+                //spawns enemyspawners using perlin noise
+
             }
         }
 

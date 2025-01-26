@@ -1,9 +1,12 @@
 using UnityEngine;
+using System.Collections;
 
 public class KnifeController : MonoBehaviour
 {
     public GameObject enemyParticles;
     public GameObject wallParticles;
+
+    public Material newMaterial;
 
     private bool hit = false;
 
@@ -31,6 +34,7 @@ public class KnifeController : MonoBehaviour
             if (enemyManager != null)
             {
                 enemyManager.takeDamage(1);
+                /*StartCoroutine(Flash(other.gameObject.GetComponent<SpriteRenderer>()));*/
             }
 
 
@@ -55,4 +59,15 @@ public class KnifeController : MonoBehaviour
             hit = true;
         }
     }
+
+    //make enemies flash white when hit
+/*    private IEnumerator Flash(SpriteRenderer other)
+    {
+        Material normalMaterial = other.material;
+        other.material = newMaterial;
+
+        yield return new WaitForSeconds(0.01f);
+
+        other.material = normalMaterial;
+    }*/
 }

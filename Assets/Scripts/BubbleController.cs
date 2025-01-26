@@ -16,6 +16,8 @@ public class BubbleController : MonoBehaviour
         {
             other.gameObject.GetComponent<PlayerController>().ChangeOxygen(1);
             AudioManager.Instance.PlaySFX("BubblePickup" + Random.Range(1, 4), 0.5f);
+            ScoreManager.Instance.Bubble();
+
             SelfDestruct();
         }
         else if (other.gameObject.tag == "Weapon")

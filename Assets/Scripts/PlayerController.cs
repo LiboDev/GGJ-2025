@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,8 +25,8 @@ public class PlayerController : MonoBehaviour
 
     private float timeElapsed = 0f;
 
-    private float oxygen = 10;
-    private float health = 10;
+    private int oxygen = 10;
+    private int health = 10;
 
     //scene
     private Vector3 mousePos;
@@ -34,7 +35,13 @@ public class PlayerController : MonoBehaviour
     public GameObject knife;
     public SpearController spearController;
 
-    void Start()
+    public Material newMaterial;
+
+    public Slider slider;
+
+    public SpriteRenderer spriteRenderer;
+
+void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
@@ -137,7 +144,7 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeOxygen(int amount)
     {
-        float pot = oxygen + amount;
+        int pot = oxygen + amount;
 
         if(pot >= 10)
         {
@@ -168,6 +175,72 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+/*    //player flashes white when hit
+    private IEnumerator Flash()
+    {
+        Material normalMaterial = spriteRenderer.material;
+        spriteRenderer.material = newMaterial;
+
+        yield return new WaitForSeconds(0.01f);
+
+        spriteRenderer.material = normalMaterial;
+    }*/
+
+    //player health
+    public void ChangeHealth(int change)
+    {
+        int pot = change + health;
+
+        if(change < 0)
+        {
+            //play sound for player taking damage
+
+            AudioManager.Instance.PlaySFX("PlayerDamage" + Random.Range(1, 4), 0.5f);
+/*            StartCoroutine(Flash());*/
+        }
+
+        if (pot > 10)
+        {
+            health = 10;
+        }
+        else if (pot < 1)
+        {
+            //game over
+            ScoreManager.Instance.GameOver();
+            
+            AudioManager.Instance.PlaySFX("Death" + Random.Range(1, 3), 0.5f);
+            AudioManager.Instance.PlaySFX("GameOver", 0.5f);
+
+            health = 0;
+
+            enabled = false;
+        }
+        else
+        {
+            health = pot;
+        }
+
+        slider.value = health;
+    }
+
+    //when spawnpoint enters radius, enable
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "EnemySpawner")
+        {
+            other.gameObject.GetComponent<EnemySpawner>().Spawn();
+        }
+    }
+/*
+    //when spawnpoint exits radius, disable
+    private void OnTriggerExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "EnemySpawner")
+        {
+            
+        }
+    }*/
 
     private void GameOver()
     {
