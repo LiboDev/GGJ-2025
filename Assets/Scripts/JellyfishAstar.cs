@@ -25,6 +25,10 @@ public class JellyfishAstar : MonoBehaviour
 
     private float rotateTimer = 0f;
 
+    public float savedRotation = 0;
+
+    private bool rotating = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -111,15 +115,17 @@ public class JellyfishAstar : MonoBehaviour
 
     private void RotateThenMove(Vector2 targetDir, Vector2 pushVelocity)
     {
-        var rot = Mathf.LerpAngle(transform.rotation.z, Mathf.Atan2(targetDir.y, targetDir.x), rotateTimer) * Mathf.Rad2Deg;
+        var targetAngle = (Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg - 90) + 360;
+        Debug.Log("Target Angle: " + targetAngle);
+        Debug.Log("Actual Angle: " + transform.rotation.eulerAngles.z);
+        var rot = Mathf.MoveTowardsAngle(transform.rotation.eulerAngles.z, targetAngle, 80 * Time.deltaTime);
 
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, rot + 90f));
+        jellyfishRigidbody.MoveRotation(rot);
 
-        rotateTimer += Time.deltaTime;
-
-        if (rotateTimer > 3.0f)
+        if (Mathf.Abs(transform.rotation.eulerAngles.z - targetAngle) < 1f)
         {
             rotateTimer = 0f;
+            rotating = false;
             jellyfishRigidbody.AddForce(pushVelocity);
         }
     }
