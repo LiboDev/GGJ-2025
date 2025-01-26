@@ -7,7 +7,7 @@ public class StateManager : MonoBehaviour
     private Vector2 spawnPosition = new Vector2(7.57f, -3.25f);
 
     [SerializeField] private float health = 3;
-    public float damage = 10;
+    public int damage = 10;
     public float hitRecoveryTime = 5;
 
     // Update is called once per frame
@@ -39,6 +39,8 @@ public class StateManager : MonoBehaviour
 
         if (health <= 0)
         {
+            ScoreManager.Instance.Kill();
+            CameraShake.Instance.FreezeFrame(0.1f);
             Destroy(this.gameObject, 0.1f);
             return;
         }

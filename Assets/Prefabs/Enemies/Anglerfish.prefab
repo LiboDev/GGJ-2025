@@ -534,7 +534,7 @@ MonoBehaviour:
   currentState: {fileID: 1838456798779756823}
   hitState: {fileID: 489798866967860510}
   health: 3
-  damage: 10
+  damage: 1
   hitRecoveryTime: 5
 --- !u!95 &8797634627806000063
 Animator:

@@ -144,13 +144,11 @@ public class JellyfishAstar : MonoBehaviour
             rotateTimer = 0f;
             rotating = false;
             swimAnimation.Play("Swim");
-            //Debug.Log("Play");
         }
     }
 
     public void Push()
     {
         jellyfishRigidbody.AddForce(pushVelocity);
-        Debug.Log("Pushed");
     }
 }

@@ -388,7 +388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPosition: {fileID: 0}
   swimAnimation: {fileID: 6530401122731027474}
-  speed: 4
+  speed: 10
   canMove: 1
   jellfishMoveThreshold: 0.1
   nextWaypointDistance: 3
@@ -409,7 +409,7 @@ MonoBehaviour:
   currentState: {fileID: 3018889669731668001}
   hitState: {fileID: 1423722002587740015}
   health: 3
-  damage: 10
+  damage: 2
   hitRecoveryTime: 5
 --- !u!50 &5309591635907091233
 Rigidbody2D:

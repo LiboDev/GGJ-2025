@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     private float timeElapsed = 0f;
 
     private int oxygen = 10;
-    private int health = 10;
+    [SerializeField] private int health = 10;
 
     //scene
     private Vector3 mousePos;
@@ -41,9 +41,12 @@ public class PlayerController : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
 
+    private Animator animator;
+
 void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
         StartCoroutine(Action());
     }
@@ -58,10 +61,14 @@ void Start()
     {
         while (true)
         {
+            animator.speed = 0;
+
             RotateTowardsCursor();
 
             if (Input.GetMouseButton(1) && grappling == false)
             {
+                animator.speed = 1;
+
                 if(rb.linearVelocity.magnitude > moveSpeed)
                 {
                     Vector2 vel = Vector2.Lerp(rb.linearVelocity, transform.right * moveSpeed, timeElapsed / rotateDelay);
@@ -174,6 +181,10 @@ void Start()
                 AudioManager.Instance.PlaySFX("PlayerBump" + Random.Range(1, 3), 0.1f);
             }
         }
+        else if (other.gameObject.tag == "Enemy")
+        {
+            ChangeHealth(-other.gameObject.GetComponent<StateManager>().damage);
+        }
     }
 
 /*    //player flashes white when hit
@@ -221,7 +232,10 @@ void Start()
             health = pot;
         }
 
-        slider.value = health;
+        if (slider != null)
+        {
+            slider.value = health;
+        }
     }
 
     //when spawnpoint enters radius, enable

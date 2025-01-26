@@ -769,7 +769,7 @@ Transform:
   m_GameObject: {fileID: 313954771}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1341,6 +1341,50 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &681160398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 681160400}
+  - component: {fileID: 681160399}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &681160399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681160398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dab41063e07e784993c7ba9e5cf889f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &681160400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681160398}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.3572752, y: 7.487927, z: -0.044919018}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &714602270
 GameObject:
   m_ObjectHideFlags: 0
@@ -2145,6 +2189,7 @@ GameObject:
   - component: {fileID: 1870974114}
   - component: {fileID: 1870974113}
   - component: {fileID: 1870974112}
+  - component: {fileID: 1870974116}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -2237,6 +2282,7 @@ MonoBehaviour:
   knifeAttackTime: 0.25
   spearThrown: 0
   grappling: 0
+  health: 10
   spear: {fileID: 313954771}
   knife: {fileID: 7360290118693052540, guid: 87c2027486429744ea0b09f734aabc3a, type: 3}
   spearController: {fileID: 313954773}
@@ -2287,12 +2333,12 @@ SpriteRenderer:
   m_SortingLayerID: -785376701
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 96c21076bac05ba43854536252eb48c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.6041667, y: 2.6041667}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -7270,6 +7316,28 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
+--- !u!95 &1870974116
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870974106}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 03d254d778eadee4f8692fb2db30aba0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1957074978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7289,10 +7357,6 @@ PrefabInstance:
     - target: {fileID: 3942494982998485, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 2.0078125
-      objectReference: {fileID: 0}
-    - target: {fileID: 2409678561520659635, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
-      propertyPath: speed
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2409678561520659635, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
       propertyPath: targetPosition
@@ -7519,3 +7583,4 @@ SceneRoots:
   - {fileID: 1323729412}
   - {fileID: 1515257353}
   - {fileID: 1990341351}
+  - {fileID: 681160400}

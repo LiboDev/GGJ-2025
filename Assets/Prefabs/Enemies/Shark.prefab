@@ -469,7 +469,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.3984375, y: 3.8027344}
+    oldSize: {x: 4.796875, y: 7.6054688}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -585,7 +585,7 @@ MonoBehaviour:
   currentState: {fileID: 1838456798779756823}
   hitState: {fileID: 489798866967860510}
   health: 5
-  damage: 10
+  damage: 3
   hitRecoveryTime: 5
 --- !u!95 &7514510489194056231
 Animator:

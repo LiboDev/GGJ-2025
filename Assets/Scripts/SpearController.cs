@@ -159,12 +159,11 @@ public class SpearController : MonoBehaviour
         {
             AudioManager.Instance.PlaySFX("SpearReel" + Random.Range(1, 3), 0.25f);
 
-            //enemy.position = transform.position;
             if (enemy != null)
             {
                 enemy.parent = transform;
-
-                while (Vector2.Distance(enemy.position, handTransform.position) > 2)
+                
+                while (enemy != null && Vector2.Distance(enemy.position, handTransform.position) > 2)
                 {
                     Vector2 direction = handTransform.position - transform.position;
                     float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -174,7 +173,10 @@ public class SpearController : MonoBehaviour
                     yield return null;
                 }
 
-                enemy.parent = null;
+                if (enemy != null)
+                {
+                    enemy.parent = null;
+                }
             }
             else
             {

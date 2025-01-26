@@ -19,6 +19,15 @@ public class EnemySpawner : MonoBehaviour
         else
         {
             GameObject enemy = Instantiate(enemies[rand], transform.position, Quaternion.identity);
+            var player = GameObject.FindGameObjectWithTag("Player");
+            if (enemy.GetComponent<AIAgent>() != null)
+            {
+                enemy.GetComponent<AIAgent>().target = player.transform;
+            }
+            else if (enemy.GetComponent<JellyfishAstar>() != null)
+            {
+                enemy.GetComponent<JellyfishAstar>().targetPosition = player.transform;
+            }
 /*
             Vector2 force = Random.insideUnitCircle * 3;
             enemy.GetComponent<Rigidbody2D>().linearVelocity = force;*/
