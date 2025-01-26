@@ -113,6 +113,8 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.25f);
 
+        AudioManager.Instance.PlaySFX("SpearReel" + Random.Range(1, 3), 0.25f);
+
         grappling = true;
 
         while (Vector2.Distance(transform.position, spear.transform.position) > 1)
@@ -125,7 +127,6 @@ public class PlayerController : MonoBehaviour
         }
 
         grappling = false;
-        spearThrown = false;
 
         StartCoroutine(spearController.Return());
     }
@@ -146,6 +147,21 @@ public class PlayerController : MonoBehaviour
         else
         {
             oxygen = pot;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Terrain")
+        {
+            if (rb.linearVelocity.magnitude > moveSpeed)
+            {
+                AudioManager.Instance.PlaySFX("PlayerBump" + Random.Range(1, 3), 0.5f);
+            }
+            else
+            {
+                AudioManager.Instance.PlaySFX("PlayerBump" + Random.Range(1, 3), 0.1f);
+            }
         }
     }
 

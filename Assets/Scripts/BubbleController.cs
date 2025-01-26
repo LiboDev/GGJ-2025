@@ -15,6 +15,7 @@ public class BubbleController : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<PlayerController>().ChangeOxygen(1);
+            AudioManager.Instance.PlaySFX("BubblePickup" + Random.Range(1, 4), 0.5f);
             SelfDestruct();
         }
         else if (other.gameObject.tag == "Weapon")
@@ -25,11 +26,7 @@ public class BubbleController : MonoBehaviour
 
     private void SelfDestruct()
     {
-        if (Vector2.Distance(transform.position, GameObject.Find("Player").transform.position) > 10f)
-        {
-            //play sfx
-            //play vfx
-        }
+        AudioManager.Instance.PlaySFX("Pop"+Random.Range(1,3),0.5f);
 
         Destroy(gameObject);
     }

@@ -46,6 +46,8 @@ public class SpearController : MonoBehaviour
 
     public IEnumerator Throw(float speed)
     {
+        AudioManager.Instance.PlaySFX("SpearThrow" + Random.Range(1, 4), 0.3f);
+
         hit = false;
         returning = false;
         thrown = true;
@@ -62,6 +64,7 @@ public class SpearController : MonoBehaviour
         bc.enabled = true;
 
         yield return new WaitUntil(() => rb.linearVelocity.magnitude < 0.1f);
+        AudioManager.Instance.PlaySFX("SpearReel" + Random.Range(1, 3), 0.25f);
 
         Debug.Log("return automatically");
 
@@ -78,10 +81,11 @@ public class SpearController : MonoBehaviour
         {
             if (other.gameObject.tag == "Terrain")
             {
-                
+                AudioManager.Instance.PlaySFX("SpearHitWall" + Random.Range(1, 4), 1f);
             }
             else if(other.gameObject.tag == "Enemy")
             {
+                AudioManager.Instance.PlaySFX("SpearHitEnemy" + Random.Range(1, 4), 1f);
                 //other.gameObject.GetComponent<EnemyController>().Damage();
             }
         }
@@ -124,6 +128,8 @@ public class SpearController : MonoBehaviour
 
         if(Vector2.Distance(transform.position, handTransform.position) > 2)
         {
+            AudioManager.Instance.PlaySFX("SpearReel" + Random.Range(1, 3), 0.25f);
+
             //enemy.position = transform.position;
             enemy.parent = transform;
 
@@ -142,8 +148,6 @@ public class SpearController : MonoBehaviour
                 enemy.parent = null;
             }
         }
-
-
 
         StartCoroutine(Return());
     }
@@ -174,8 +178,10 @@ public class SpearController : MonoBehaviour
         transform.position = handTransform.position;
         transform.parent = handTransform;
 
-        yield return new WaitForSeconds(0.1f);
+        AudioManager.Instance.PlaySFX("SpearDetach" + Random.Range(1, 3), 0.5f);
+        yield return new WaitForSeconds(0.25f);
         playerController.spearThrown = false;
+        
     }
 
 /*    float SmoothAngleTransition(float fromAngle, float toAngle, float speed)

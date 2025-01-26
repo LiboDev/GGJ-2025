@@ -17,11 +17,14 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume", 1f);
-        SFXVolume(sfxSlider.value);
+        if(SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume", 1f);
+            SFXVolume(sfxSlider.value);
 
-        musicSlider.value = PlayerPrefs.GetFloat("musicVolume",1f);
-        MusicVolume(musicSlider.value);
+            musicSlider.value = PlayerPrefs.GetFloat("musicVolume", 1f);
+            MusicVolume(musicSlider.value);
+        }
 
 
         if (Instance == null)
@@ -46,7 +49,7 @@ public class AudioManager : MonoBehaviour
 
         if (s == null)
         {
-            Debug.Log("SoundNotFound");
+            Debug.Log("SoundNotFound " + name);
         }
         else
         {
@@ -55,7 +58,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlaySFX(string name)
+    public void PlaySFX(string name, float volume)
     {
         Sound s = Array.Find(sfxSounds, x => x.name == name);
 
@@ -65,7 +68,7 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            sfxSource.PlayOneShot(s.clip);
+            sfxSource.PlayOneShot(s.clip, volume);
         }
     }
 
