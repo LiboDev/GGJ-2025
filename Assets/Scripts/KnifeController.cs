@@ -26,7 +26,12 @@ public class KnifeController : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            Debug.Log("knife damage");
+            var enemyManager = other.gameObject.GetComponent<StateManager>();
+
+            if (enemyManager != null)
+            {
+                enemyManager.takeDamage(1);
+            }
 
 
             AudioManager.Instance.PlaySFX("KnifeHitEnemy" + Random.Range(1, 4), 0.3f);

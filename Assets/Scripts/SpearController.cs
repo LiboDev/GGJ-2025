@@ -133,6 +133,24 @@ public class SpearController : MonoBehaviour
 
     private IEnumerator Hook(Transform enemy)
     {
+        JellyfishAstar jellyfishPathfinding = null;
+        if (enemy != null)
+        {
+            jellyfishPathfinding = enemy.GetComponent<JellyfishAstar>();
+
+            if (jellyfishPathfinding != null)
+            {
+                jellyfishPathfinding.canMove = false;
+            }
+
+            var enemyManager = enemy.GetComponent<StateManager>();
+
+            if (enemyManager != null)
+            {
+                enemyManager.takeDamage(1);
+            }
+        }
+
         bc.enabled = false;
 
         yield return new WaitForSeconds(0.5f);
@@ -142,22 +160,43 @@ public class SpearController : MonoBehaviour
             AudioManager.Instance.PlaySFX("SpearReel" + Random.Range(1, 3), 0.25f);
 
             //enemy.position = transform.position;
-            enemy.parent = transform;
-
-            while(Vector2.Distance(enemy.position, handTransform.position) > 2)
+            if (enemy != null)
             {
-                Vector2 direction = handTransform.position - transform.position;
-                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180f + angle));
+                enemy.parent = transform;
 
-                transform.position = Vector2.MoveTowards(transform.position, handTransform.position, speed * Time.deltaTime); ;
-                yield return null;
-            }
+                while (Vector2.Distance(enemy.position, handTransform.position) > 2)
+                {
+                    Vector2 direction = handTransform.position - transform.position;
+                    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                    transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180f + angle));
 
-            if(enemy != null)
-            {
+                    transform.position = Vector2.MoveTowards(transform.position, handTransform.position, speed * Time.deltaTime); ;
+                    yield return null;
+                }
+
                 enemy.parent = null;
             }
+            else
+            {
+                while (Vector2.Distance(transform.position, handTransform.position) > 2)
+                {
+                    Vector2 direction = handTransform.position - transform.position;
+                    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                    transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180f + angle));
+
+                    transform.position = Vector2.MoveTowards(transform.position, handTransform.position, speed * Time.deltaTime); ;
+                    yield return null;
+                }
+            }
+        }
+
+        if (jellyfishPathfinding != null)
+        {
+            jellyfishPathfinding.canMove = true;
+        }
+        else
+        {
+            Debug.LogError("No jellyfish pathfinding found");
         }
 
         StartCoroutine(Return());

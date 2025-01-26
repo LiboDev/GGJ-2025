@@ -48,8 +48,6 @@ public class AttackState : State
             // How fast the enemy should accelerate
             t += 1f * Time.deltaTime;
 
-            Debug.Log("Looped: " + t);
-
             yield return null;
         }
 

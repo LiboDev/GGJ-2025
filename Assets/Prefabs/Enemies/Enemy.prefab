@@ -117,7 +117,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 11
+  m_Radius: 20
 --- !u!1 &2831385093350119338
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,6 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseState: {fileID: 2828821303277988793}
+  attackDone: 0
   aiAgent: {fileID: 7831909137341240098}
 --- !u!1 &7452096099010404604
 GameObject:
@@ -473,6 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+  currentMoveSpeed: 0
   target: {fileID: 0}
   stopDistanceThreshold: 1.3
   lungeDistance: 5
@@ -492,6 +494,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: {fileID: 1838456798779756823}
-  health: 10
+  health: 3
   damage: 10
   hitRecoveryTime: 5

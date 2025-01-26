@@ -5,7 +5,7 @@ public class StateManager : MonoBehaviour
     [SerializeField] private State currentState;
     private Vector2 spawnPosition = new Vector2(7.57f, -3.25f);
 
-    public float health = 10;
+    [SerializeField] private float health = 3;
     public float damage = 10;
     public float hitRecoveryTime = 5;
 
@@ -28,5 +28,15 @@ public class StateManager : MonoBehaviour
     private void SwitchToTheNextState(State nextState)
     {
         currentState = nextState;
+    }
+
+    public void takeDamage(int damageTaken)
+    {
+        health -= damageTaken;
+
+        if (health <= 0)
+        {
+            Destroy(this.gameObject, 0.1f);
+        }
     }
 }

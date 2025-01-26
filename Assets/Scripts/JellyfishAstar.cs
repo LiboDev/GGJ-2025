@@ -14,6 +14,8 @@ public class JellyfishAstar : MonoBehaviour
 
     public float speed = 2;
 
+    public bool canMove = true;
+
     // How much should the jellyfish slow down before it moves again?
     public float jellfishMoveThreshold = 0.2f;
 
@@ -44,62 +46,72 @@ public class JellyfishAstar : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // Recalculate the path whenever the player moves
-        if (Mathf.Abs(targetPosition.position.x - lastCalculatedTargetPosition.x) > 0.1f || Mathf.Abs(targetPosition.position.y - lastCalculatedTargetPosition.y) > 0.1f) {
-            seeker.StartPath(transform.position, targetPosition.position, OnPathComplete);
-            lastCalculatedTargetPosition = targetPosition.position;
-        }
-
-        if (path == null)
+        if (canMove)
         {
-            // We have no path to follow yet, so don't do anything
-            return;
-        }
 
-        // Check in a loop if we are close enough to the currrent waypoint to switch to the next one.
-        // We do this in a loop because many waypoints might be close to each other and we may reach
-        // several of them in the same frame.
-        reachedEndOfPath = false;
-        // The distance to the next waypoint in the path
-        float distanceToWaypoint;
-        while (true)
-        {
-            distanceToWaypoint = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
-            if (distanceToWaypoint < nextWaypointDistance)
+            // Recalculate the path whenever the player moves
+            if (Mathf.Abs(targetPosition.position.x - lastCalculatedTargetPosition.x) > 0.1f || Mathf.Abs(targetPosition.position.y - lastCalculatedTargetPosition.y) > 0.1f)
             {
-                // Check if there is another waypoint or if we have reached the end of the path
-                if (currentWaypoint + 1 < path.vectorPath.Count)
+                seeker.StartPath(transform.position, targetPosition.position, OnPathComplete);
+                lastCalculatedTargetPosition = targetPosition.position;
+            }
+
+            if (path == null)
+            {
+                // We have no path to follow yet, so don't do anything
+                return;
+            }
+
+            // Check in a loop if we are close enough to the currrent waypoint to switch to the next one.
+            // We do this in a loop because many waypoints might be close to each other and we may reach
+            // several of them in the same frame.
+            reachedEndOfPath = false;
+            // The distance to the next waypoint in the path
+            float distanceToWaypoint;
+            while (true)
+            {
+                distanceToWaypoint = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
+                if (distanceToWaypoint < nextWaypointDistance)
                 {
-                    currentWaypoint++;
-                } else
+                    // Check if there is another waypoint or if we have reached the end of the path
+                    if (currentWaypoint + 1 < path.vectorPath.Count)
+                    {
+                        currentWaypoint++;
+                    }
+                    else
+                    {
+                        // Set a status variable to indicate that the agent has reached the end of the path.
+                        reachedEndOfPath = true;
+                        break;
+                    }
+                }
+                else
                 {
-                    // Set a status variable to indicate that the agent has reached the end of the path.
-                    reachedEndOfPath = true;
                     break;
                 }
             }
-            else
+
+            // Slow down smoothly upon approaching the end of the path
+            // This value will smoothly go from 1 to 0 as the agent approaches the last waypoint in the path.
+            var speedFactor = reachedEndOfPath ? Mathf.Sqrt(distanceToWaypoint / nextWaypointDistance) : 1f;
+
+            // Direction to the next waypoint
+            // Normalize it so that it has a length of 1 world unit
+            Vector2 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
+            // Multiply the direction by our desired speed to get a velocity
+            Vector2 velocity = dir * speed * 100 * speedFactor;
+
+            Debug.DrawRay(transform.position, velocity);
+
+            // If the jellyfish has slowed down, push again
+            if (Mathf.Abs(jellyfishRigidbody.linearVelocityX) < jellfishMoveThreshold && Mathf.Abs(jellyfishRigidbody.linearVelocityY) < jellfishMoveThreshold)
             {
-                break;
+                RotateThenMove(dir, velocity);
             }
         }
-
-        // Slow down smoothly upon approaching the end of the path
-        // This value will smoothly go from 1 to 0 as the agent approaches the last waypoint in the path.
-        var speedFactor = reachedEndOfPath ? Mathf.Sqrt(distanceToWaypoint / nextWaypointDistance) : 1f;
-
-        // Direction to the next waypoint
-        // Normalize it so that it has a length of 1 world unit
-        Vector2 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
-        // Multiply the direction by our desired speed to get a velocity
-        Vector2 velocity = dir * speed * 100 * speedFactor;
-
-        Debug.DrawRay(transform.position, velocity);
-
-        // If the jellyfish has slowed down, push again
-        if (Mathf.Abs(jellyfishRigidbody.linearVelocityX) < jellfishMoveThreshold && Mathf.Abs(jellyfishRigidbody.linearVelocityY) < jellfishMoveThreshold)
+        else
         {
-            RotateThenMove(dir, velocity);
+            jellyfishRigidbody.linearVelocity = Vector2.zero;
         }
     }
 
