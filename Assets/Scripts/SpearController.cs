@@ -16,6 +16,7 @@ public class SpearController : MonoBehaviour
     private bool hit = false;
     private bool returning = false;
     private bool thrown = false;
+    private bool collided = false;
 
     private float speed;
 
@@ -46,7 +47,7 @@ public class SpearController : MonoBehaviour
 
     public IEnumerator Throw(float speed)
     {
-        AudioManager.Instance.PlaySFX("SpearThrow" + Random.Range(1, 4), 0.3f);
+        AudioManager.Instance.PlaySFX("SpearThrow" + Random.Range(1, 4), 0.2f);
 
         hit = false;
         returning = false;
@@ -64,7 +65,12 @@ public class SpearController : MonoBehaviour
         bc.enabled = true;
 
         yield return new WaitUntil(() => rb.linearVelocity.magnitude < 0.1f);
-        AudioManager.Instance.PlaySFX("SpearReel" + Random.Range(1, 3), 0.25f);
+
+        if (collided == false)
+        {
+            AudioManager.Instance.PlaySFX("SpearReel" + Random.Range(1, 3), 0.25f);
+        }
+
 
         Debug.Log("return automatically");
 
@@ -81,7 +87,7 @@ public class SpearController : MonoBehaviour
         {
             if (other.gameObject.tag == "Terrain")
             {
-                AudioManager.Instance.PlaySFX("SpearHitWall" + Random.Range(1, 4), 1f);
+                //AudioManager.Instance.PlaySFX("SpearHitWall" + Random.Range(1, 4), 1f);
             }
             else if(other.gameObject.tag == "Enemy")
             {
@@ -98,6 +104,7 @@ public class SpearController : MonoBehaviour
         {
             if (other.gameObject.tag == "Terrain")
             {
+                AudioManager.Instance.PlaySFX("SpearHitWall" + Random.Range(1, 4), 1f);
                 rb.linearVelocity = Vector2.zero;
 
                 Debug.Log("grapple");
@@ -105,6 +112,8 @@ public class SpearController : MonoBehaviour
                 hit = true;
                 returning = true;
                 rb.linearVelocity = Vector3.zero;
+
+                collided = true;
             }
             else if (other.gameObject.tag == "Enemy")
             {
@@ -115,6 +124,8 @@ public class SpearController : MonoBehaviour
                 hit = true;
                 returning = true;
                 rb.linearVelocity = Vector3.zero;
+
+                collided = true;
             }
         }
 

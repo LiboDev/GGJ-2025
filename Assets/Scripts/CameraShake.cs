@@ -58,12 +58,17 @@ public class CameraShake : MonoBehaviour
         cinemachineBasicMultiChannelPerlin.AmplitudeGain = 0f;
     }
 
+    public void FreezeFrame(float amount)
+    {
+        StartCoroutine(FreezeFrames(amount));
+    }
+
     private IEnumerator FreezeFrames(float amount)
     {
 
         Time.timeScale = 0.1f;
 
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(amount / 10);
 
         Time.timeScale = 1f;
     }

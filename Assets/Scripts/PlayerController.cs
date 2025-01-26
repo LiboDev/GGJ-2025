@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     //transform
     private Rigidbody2D rb;
     public Transform hand;
+    public Transform hand1;
 
     //stats
     public float moveSpeed = 5f;
@@ -87,8 +88,8 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    GameObject knifeObject = Instantiate(knife, hand.position, transform.rotation);
-                    knifeObject.transform.parent = hand;
+                    GameObject knifeObject = Instantiate(knife, hand1.position, transform.rotation);
+                    knifeObject.transform.parent = hand1;
 
                     yield return new WaitForSeconds(knifeAttackTime);
                 }
@@ -113,17 +114,20 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.25f);
 
-        AudioManager.Instance.PlaySFX("SpearReel" + Random.Range(1, 3), 0.25f);
-
-        grappling = true;
-
-        while (Vector2.Distance(transform.position, spear.transform.position) > 1)
+        if(Vector2.Distance(transform.position, spear.transform.position) > 2)
         {
-            Vector2 direction = spear.transform.position - transform.position;
-            direction.Normalize();
+            AudioManager.Instance.PlaySFX("SpearReel" + Random.Range(1, 3), 0.25f);
 
-            rb.linearVelocity = direction * grappleSpeed;
-            yield return null;
+            grappling = true;
+
+            while (Vector2.Distance(transform.position, spear.transform.position) > 1)
+            {
+                Vector2 direction = spear.transform.position - transform.position;
+                direction.Normalize();
+
+                rb.linearVelocity = direction * grappleSpeed;
+                yield return null;
+            }
         }
 
         grappling = false;

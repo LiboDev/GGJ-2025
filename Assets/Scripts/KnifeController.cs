@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class KnifeController : MonoBehaviour
 {
+    public GameObject enemyParticles;
+    public GameObject wallParticles;
+
     private bool hit = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,11 +27,15 @@ public class KnifeController : MonoBehaviour
         if(other.gameObject.tag == "Enemy")
         {
             Debug.Log("knife damage");
+
+
             AudioManager.Instance.PlaySFX("KnifeHitEnemy" + Random.Range(1, 4), 0.3f);
 
-
-
             CameraShake.Instance.ShakeCamera(10f, 0.1f);
+            CameraShake.Instance.FreezeFrame(0.1f);
+
+            Instantiate(enemyParticles, other.transform.position, Quaternion.identity);
+
             //deal damage and knockback relative to pos
             //other.GetComponent<EnemyController>().Damage(1,transform.position);
 
@@ -37,6 +44,8 @@ public class KnifeController : MonoBehaviour
         else if (other.gameObject.tag == "Terrain")
         {
             AudioManager.Instance.PlaySFX("KnifeHitWall" + Random.Range(1, 4), 0.4f);
+
+            Instantiate(wallParticles, transform.position + transform.right, Quaternion.identity);
 
             hit = true;
         }
