@@ -194,10 +194,6 @@ public class SpearController : MonoBehaviour
         {
             jellyfishPathfinding.canMove = true;
         }
-        else
-        {
-            Debug.LogError("No jellyfish pathfinding found");
-        }
 
         StartCoroutine(Return());
     }

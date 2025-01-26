@@ -37,8 +37,6 @@ public class StateManager : MonoBehaviour
 
         currentState = hitState;
 
-        Debug.Log(currentState);
-
         if (health <= 0)
         {
             Destroy(this.gameObject, 0.1f);
