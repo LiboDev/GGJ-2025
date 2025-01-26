@@ -7,6 +7,7 @@ public class IdleState : State
     public bool canSeeThePlayer;
 
     [SerializeField] private Collider2D visionCollider;
+    [SerializeField] private Animator animator;
 
     public override State RunCurrentState()
     {
@@ -15,6 +16,7 @@ public class IdleState : State
         if (canSeeThePlayer)
         {
             transform.GetComponentInParent<Transform>().GetComponentInParent<AIPath>().canMove = true;
+            animator.Play("Swim");
             return chaseState;
         }
         else

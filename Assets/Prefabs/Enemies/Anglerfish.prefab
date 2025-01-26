@@ -83,6 +83,7 @@ MonoBehaviour:
   chaseState: {fileID: 2828821303277988793}
   canSeeThePlayer: 0
   visionCollider: {fileID: 0}
+  animator: {fileID: 8797634627806000063}
 --- !u!58 &2914973553236943227
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -201,7 +202,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1
+  m_Radius: 3
 --- !u!1 &4389602080996566802
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,6 +250,7 @@ MonoBehaviour:
   chaseState: {fileID: 2828821303277988793}
   attackDone: 0
   aiAgent: {fileID: 7831909137341240098}
+  animator: {fileID: 8797634627806000063}
 --- !u!1 &4588400229871906059
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,6 +298,7 @@ MonoBehaviour:
   chaseState: {fileID: 2828821303277988793}
   aiAgent: {fileID: 7831909137341240098}
   stateManager: {fileID: 539491619042680570}
+  animator: {fileID: 8797634627806000063}
 --- !u!1 &7452096099010404604
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,13 +309,14 @@ GameObject:
   m_Component:
   - component: {fileID: 5407567219530858294}
   - component: {fileID: 7869091236611570835}
-  - component: {fileID: 3942494982998485}
+  - component: {fileID: 1491584600885553716}
   - component: {fileID: 7784269005867603420}
   - component: {fileID: 8223923950390522866}
   - component: {fileID: 7831909137341240098}
   - component: {fileID: 539491619042680570}
+  - component: {fileID: 8797634627806000063}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Anglerfish
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -375,22 +379,22 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785376701
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ba05c743cb597754b97db29a28934c05, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.9062498, y: 3.9062498}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &3942494982998485
-PolygonCollider2D:
+--- !u!70 &1491584600885553716
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -423,22 +427,9 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.5773587}
-      - {x: -0.5, y: -0.28866667}
-      - {x: 0.5, y: -0.28866667}
-  m_UseDelaunayMesh: 0
+  m_Offset: {x: -0.009346962, y: -0.05824399}
+  m_Size: {x: 1.1402693, y: 1.7664847}
+  m_Direction: 0
 --- !u!114 &7784269005867603420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,9 +516,9 @@ MonoBehaviour:
   currentMoveSpeed: 0
   target: {fileID: 0}
   stopDistanceThreshold: 1.3
-  lungeDistance: 5
+  lungeDistance: 3
   lungeWindup: 1
-  lungeRecovery: 5
+  lungeRecovery: 1
 --- !u!114 &539491619042680570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,3 +536,25 @@ MonoBehaviour:
   health: 3
   damage: 10
   hitRecoveryTime: 5
+--- !u!95 &8797634627806000063
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7452096099010404604}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 69270889f3e830d498191afdcac91945, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -11,6 +11,7 @@ public class AttackState : State
     private Coroutine attackCoroutine;
 
     [SerializeField] private AIAgent aiAgent;
+    [SerializeField] private Animator animator;
 
     public override State RunCurrentState()
     {
@@ -40,6 +41,8 @@ public class AttackState : State
 
         var t = 0f;
 
+        animator.speed = 2;
+
         // Quickly burst it forward before coming to a halt
         while (t < 1.0f)
         {
@@ -54,11 +57,13 @@ public class AttackState : State
         Debug.Log("I have Attacked!");
 
         aiAgent.currentMoveSpeed = 0;
+        animator.speed = 0;
 
         // Wait till the enemy is recovered then reset move speed
         yield return new WaitForSeconds(aiAgent.lungeRecovery);
 
         aiAgent.currentMoveSpeed = aiAgent.moveSpeed;
+        animator.speed = 1;
 
         attackDone = true;
     }

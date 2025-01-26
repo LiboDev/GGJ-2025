@@ -9,6 +9,9 @@ public class JellyfishAstar : MonoBehaviour
 
     private Seeker seeker;
     private Rigidbody2D jellyfishRigidbody;
+    [SerializeField] private Animator swimAnimation;
+
+    private Coroutine pushCoroutine;
 
     public Path path;
 
@@ -31,11 +34,14 @@ public class JellyfishAstar : MonoBehaviour
 
     private bool rotating = false;
 
+    private Vector2 pushVelocity = Vector2.zero;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         seeker = GetComponent<Seeker>();
         jellyfishRigidbody = GetComponent<Rigidbody2D>();
+        //swimAnimation = GetComponent<Animation>();
 
         // Start a new path to the targetPosition, call the OnPathComplete function
         // when the path has been calculated (which may take a few frames depending on the complexity)
@@ -106,6 +112,7 @@ public class JellyfishAstar : MonoBehaviour
             // If the jellyfish has slowed down, push again
             if (Mathf.Abs(jellyfishRigidbody.linearVelocityX) < jellfishMoveThreshold && Mathf.Abs(jellyfishRigidbody.linearVelocityY) < jellfishMoveThreshold)
             {
+                pushVelocity = velocity;
                 RotateThenMove(dir, velocity);
             }
         }
@@ -136,7 +143,14 @@ public class JellyfishAstar : MonoBehaviour
         {
             rotateTimer = 0f;
             rotating = false;
-            jellyfishRigidbody.AddForce(pushVelocity);
+            swimAnimation.Play("Swim");
+            //Debug.Log("Play");
         }
+    }
+
+    public void Push()
+    {
+        jellyfishRigidbody.AddForce(pushVelocity);
+        Debug.Log("Pushed");
     }
 }

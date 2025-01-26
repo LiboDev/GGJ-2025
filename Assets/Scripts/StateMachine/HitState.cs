@@ -11,6 +11,7 @@ public class HitState : State
 
     [SerializeField] private AIAgent aiAgent;
     [SerializeField] private StateManager stateManager;
+    [SerializeField] private Animator animator;
 
     public override State RunCurrentState()
     {
@@ -32,10 +33,12 @@ public class HitState : State
         if (aiAgent != null)
         {
             aiAgent.currentMoveSpeed = 0f;
+            animator.speed = 0;
 
             yield return new WaitForSeconds(stateManager.hitRecoveryTime);
 
             aiAgent.currentMoveSpeed = aiAgent.moveSpeed;
+            animator.speed = 1;
         }
         else
         {
