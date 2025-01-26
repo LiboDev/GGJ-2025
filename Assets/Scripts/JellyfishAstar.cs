@@ -111,13 +111,13 @@ public class JellyfishAstar : MonoBehaviour
 
     private void RotateThenMove(Vector2 targetDir, Vector2 pushVelocity)
     {
-        Vector2 startingRotation = new Vector2(transform.rotation.x, transform.rotation.y);
+        var rot = Mathf.LerpAngle(transform.rotation.z, Mathf.Atan2(targetDir.y, targetDir.x), rotateTimer) * Mathf.Rad2Deg;
 
-        transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, Mathf.Lerp(transform.rotation.z, Mathf.Atan2(targetDir.y, targetDir.x), rotateTimer)));
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, rot + 90f));
 
-        rotateTimer += 0.5f * Time.deltaTime;
+        rotateTimer += Time.deltaTime;
 
-        if (rotateTimer > 1.0f)
+        if (rotateTimer > 3.0f)
         {
             rotateTimer = 0f;
             jellyfishRigidbody.AddForce(pushVelocity);

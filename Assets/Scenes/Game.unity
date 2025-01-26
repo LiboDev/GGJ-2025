@@ -1195,7 +1195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7452096099010404604, guid: 92bc1941b79753749b58cd186054f5ab, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7831909137341240098, guid: 92bc1941b79753749b58cd186054f5ab, type: 3}
       propertyPath: target
@@ -6499,7 +6499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5309591635907091233, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
       propertyPath: m_LinearDamping
-      value: 0.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5407567219530858294, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6547,7 +6547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7452096099010404604, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7831909137341240098, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
       propertyPath: target
@@ -6556,6 +6556,14 @@ PrefabInstance:
     - target: {fileID: 7831909137341240098, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869091236611570835, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869091236611570835, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -785376701
       objectReference: {fileID: 0}
     - target: {fileID: 8223923950390522866, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
       propertyPath: m_Enabled
