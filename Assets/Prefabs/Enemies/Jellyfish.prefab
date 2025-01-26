@@ -30,7 +30,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 332373804195591158}
-  - {fileID: 4579224401542156711}
   - {fileID: 4711829974356348902}
   m_Father: {fileID: 5407567219530858294}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -43,8 +42,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 332373804195591158}
-  - component: {fileID: 1838456798779756823}
   - component: {fileID: 2914973553236943227}
+  - component: {fileID: 3018889669731668001}
   m_Layer: 0
   m_Name: Idle State
   m_TagString: Untagged
@@ -67,21 +66,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8985531884042495430}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1838456798779756823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2589343283673457579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcbcaf465f6baee4086ff2d90cb1b60b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chaseState: {fileID: 2828821303277988793}
-  canSeeThePlayer: 0
-  visionCollider: {fileID: 0}
 --- !u!58 &2914973553236943227
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -118,89 +102,22 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 11
---- !u!1 &2831385093350119338
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4579224401542156711}
-  - component: {fileID: 2828821303277988793}
-  - component: {fileID: 632144140358667945}
-  m_Layer: 0
-  m_Name: Chase State
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4579224401542156711
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2831385093350119338}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8985531884042495430}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2828821303277988793
+--- !u!114 &3018889669731668001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2831385093350119338}
+  m_GameObject: {fileID: 2589343283673457579}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b8256f5badb4d141b378aada5ecdbe5, type: 3}
+  m_Script: {fileID: 11500000, guid: 121a96e5b62fe2945aac71206af41762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackState: {fileID: 6661697502512415550}
-  isInAttackRange: 0
---- !u!58 &632144140358667945
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2831385093350119338}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 1
+  chaseState: {fileID: 0}
+  canSeeThePlayer: 0
+  visionCollider: {fileID: 0}
+  attackState: {fileID: 8250308323868572779}
 --- !u!1 &4389602080996566802
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4711829974356348902}
-  - component: {fileID: 6661697502512415550}
+  - component: {fileID: 8250308323868572779}
   m_Layer: 0
   m_Name: Attack State
   m_TagString: Untagged
@@ -233,7 +150,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8985531884042495430}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6661697502512415550
+--- !u!114 &8250308323868572779
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -242,10 +159,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4389602080996566802}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: affc20ddec143b64e9d8b25799515b33, type: 3}
+  m_Script: {fileID: 11500000, guid: 254d6e23cfdb2c548825902d235fcc6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseState: {fileID: 2828821303277988793}
+  chaseState: {fileID: 0}
 --- !u!1 &7452096099010404604
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,9 +175,7 @@ GameObject:
   - component: {fileID: 7869091236611570835}
   - component: {fileID: 3942494982998485}
   - component: {fileID: 7784269005867603420}
-  - component: {fileID: 8223923950390522866}
   - component: {fileID: 2409678561520659635}
-  - component: {fileID: 7831909137341240098}
   - component: {fileID: 539491619042680570}
   - component: {fileID: 5309591635907091233}
   m_Layer: 0
@@ -327,8 +242,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785376701
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0.5518868, g: 1, b: 0.9186345, a: 1}
@@ -419,48 +334,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &8223923950390522866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7452096099010404604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 5
-  radius: 0.5
-  height: 2
-  canMove: 1
-  maxSpeed: 1
-  gravity: {x: 0, y: 0, z: 0}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  centerOffsetCompatibility: NaN
-  repathRateCompatibility: NaN
-  canSearchCompability: 0
-  orientation: 1
-  enableRotation: 1
-  autoRepath:
-    mode: 2
-    interval: 0.5
-    sensitivity: 10
-    maximumInterval: 2
-    visualizeSensitivity: 0
-  targetCompatibility: {fileID: 0}
-  maxAcceleration: -2.5
-  rotationSpeed: 360
-  slowdownDistance: 0.6
-  pickNextWaypointDist: 2
-  endReachedDistance: 0.2
-  alwaysDrawGizmos: 0
-  slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
-  constrainInsideGraph: 0
 --- !u!114 &2409678561520659635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,26 +347,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {fileID: 0}
-  speed: 2
-  jellfishMoveThreshold: 0.2
+  speed: 4
+  jellfishMoveThreshold: 0.1
   nextWaypointDistance: 3
   reachedEndOfPath: 0
   savedRotation: 0
---- !u!114 &7831909137341240098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7452096099010404604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4b0d8a2169d381418fb192f02d0f5f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
-  target: {fileID: 0}
-  stopDistanceThreshold: 1.3
 --- !u!114 &539491619042680570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,7 +364,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef963f9cbf5daf459ea360c02e7ddcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 1838456798779756823}
+  currentState: {fileID: 3018889669731668001}
+  moveSpeed: 4
+  health: 10
+  damage: 10
+  lungeDistance: 5
+  lungRecoveryTime: 5
+  hitRecoveryTime: 5
 --- !u!50 &5309591635907091233
 Rigidbody2D:
   serializedVersion: 5
@@ -519,8 +383,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
+  m_Mass: 2
+  m_LinearDamping: 3
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -533,4 +397,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

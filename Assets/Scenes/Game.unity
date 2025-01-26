@@ -1359,6 +1359,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 632144140358667945, guid: 92bc1941b79753749b58cd186054f5ab, type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5407567219530858294, guid: 92bc1941b79753749b58cd186054f5ab, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.57
@@ -1405,12 +1409,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7452096099010404604, guid: 92bc1941b79753749b58cd186054f5ab, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7831909137341240098, guid: 92bc1941b79753749b58cd186054f5ab, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1870974111}
+    - target: {fileID: 7831909137341240098, guid: 92bc1941b79753749b58cd186054f5ab, type: 3}
+      propertyPath: lungeDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7869091236611570835, guid: 92bc1941b79753749b58cd186054f5ab, type: 3}
       propertyPath: m_SortingLayer
       value: 3
@@ -6684,37 +6692,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 539491619042680570, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2409678561520659635, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
-      propertyPath: speed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2409678561520659635, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2409678561520659635, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
       propertyPath: targetPosition
       value: 
       objectReference: {fileID: 1870974111}
-    - target: {fileID: 2409678561520659635, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
-      propertyPath: jellfishMoveThreshold
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5309591635907091233, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
-      propertyPath: m_Mass
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5309591635907091233, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5309591635907091233, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
-      propertyPath: m_LinearDamping
-      value: 3
+    - target: {fileID: 2828821303277988793, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
+      propertyPath: attackState
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5407567219530858294, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6775,10 +6759,6 @@ PrefabInstance:
     - target: {fileID: 7869091236611570835, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
       propertyPath: m_SortingLayer
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7869091236611570835, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -785376701
       objectReference: {fileID: 0}
     - target: {fileID: 8223923950390522866, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
       propertyPath: m_Enabled

@@ -6,9 +6,11 @@ public class AttackState : State
 {
     public ChaseState chaseState;
 
-    private bool attackDone = false;
+    public bool attackDone = false;
 
     private Coroutine attackCoroutine;
+
+    [SerializeField] private AIAgent aiAgent;
 
     public override State RunCurrentState()
     {
@@ -31,13 +33,34 @@ public class AttackState : State
 
     private IEnumerator Attack()
     {
-        transform.GetComponentInParent<Transform>().GetComponentInParent<AIPath>().canMove = false;
+        // Stop the enemy while it winds up
+        aiAgent.currentMoveSpeed = 0f;
+
+        yield return new WaitForSeconds(aiAgent.lungeWindup);
+
+        var t = 0f;
+
+        // Quickly burst it forward before coming to a halt
+        while (t < 1.0f)
+        {
+            aiAgent.currentMoveSpeed = Mathf.Lerp(0, aiAgent.lungeDistance, t);
+
+            // How fast the enemy should accelerate
+            t += 1f * Time.deltaTime;
+
+            Debug.Log("Looped: " + t);
+
+            yield return null;
+        }
 
         Debug.Log("I have Attacked!");
 
-        yield return new WaitForSeconds(0.8f);
+        aiAgent.currentMoveSpeed = 0;
 
-        transform.GetComponentInParent<Transform>().GetComponentInParent<AIPath>().canMove = true;
+        // Wait till the enemy is recovered then reset move speed
+        yield return new WaitForSeconds(aiAgent.lungeRecovery);
+
+        aiAgent.currentMoveSpeed = aiAgent.moveSpeed;
 
         attackDone = true;
     }

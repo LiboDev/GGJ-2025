@@ -116,8 +116,6 @@ public class JellyfishAstar : MonoBehaviour
     private void RotateThenMove(Vector2 targetDir, Vector2 pushVelocity)
     {
         var targetAngle = (Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg - 90) + 360;
-        Debug.Log("Target Angle: " + targetAngle);
-        Debug.Log("Actual Angle: " + transform.rotation.eulerAngles.z);
         var rot = Mathf.MoveTowardsAngle(transform.rotation.eulerAngles.z, targetAngle, 80 * Time.deltaTime);
 
         jellyfishRigidbody.MoveRotation(rot);
