@@ -31,6 +31,7 @@ Transform:
   m_Children:
   - {fileID: 332373804195591158}
   - {fileID: 4711829974356348902}
+  - {fileID: 6682099499881260264}
   m_Father: {fileID: 5407567219530858294}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2589343283673457579
@@ -165,6 +166,53 @@ MonoBehaviour:
   chaseState: {fileID: 0}
   attackDone: 0
   aiAgent: {fileID: 0}
+--- !u!1 &4961408231176472119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6682099499881260264}
+  - component: {fileID: 1423722002587740015}
+  m_Layer: 0
+  m_Name: Hit State
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6682099499881260264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4961408231176472119}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8985531884042495430}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1423722002587740015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4961408231176472119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6179020d3bb23de4ca3901356e76595c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackState: {fileID: 8250308323868572779}
+  stateManager: {fileID: 539491619042680570}
+  jellyfishPathfinding: {fileID: 2409678561520659635}
 --- !u!1 &7452096099010404604
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,6 +416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: {fileID: 3018889669731668001}
+  hitState: {fileID: 1423722002587740015}
   health: 3
   damage: 10
   hitRecoveryTime: 5

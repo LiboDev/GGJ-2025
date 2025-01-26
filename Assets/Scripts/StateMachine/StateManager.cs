@@ -3,6 +3,7 @@ using UnityEngine;
 public class StateManager : MonoBehaviour
 {
     [SerializeField] private State currentState;
+    [SerializeField] private State hitState;
     private Vector2 spawnPosition = new Vector2(7.57f, -3.25f);
 
     [SerializeField] private float health = 3;
@@ -34,9 +35,14 @@ public class StateManager : MonoBehaviour
     {
         health -= damageTaken;
 
+        currentState = hitState;
+
+        Debug.Log(currentState);
+
         if (health <= 0)
         {
             Destroy(this.gameObject, 0.1f);
+            return;
         }
     }
 }

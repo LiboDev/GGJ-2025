@@ -32,6 +32,7 @@ Transform:
   - {fileID: 332373804195591158}
   - {fileID: 4579224401542156711}
   - {fileID: 4711829974356348902}
+  - {fileID: 6883835510970208877}
   m_Father: {fileID: 5407567219530858294}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2589343283673457579
@@ -248,6 +249,53 @@ MonoBehaviour:
   chaseState: {fileID: 2828821303277988793}
   attackDone: 0
   aiAgent: {fileID: 7831909137341240098}
+--- !u!1 &4588400229871906059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6883835510970208877}
+  - component: {fileID: 489798866967860510}
+  m_Layer: 0
+  m_Name: Hit State
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6883835510970208877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4588400229871906059}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8985531884042495430}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &489798866967860510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4588400229871906059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626eb72f4ef04f14e87ac4e4c280835e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseState: {fileID: 2828821303277988793}
+  aiAgent: {fileID: 7831909137341240098}
+  stateManager: {fileID: 539491619042680570}
 --- !u!1 &7452096099010404604
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +528,6 @@ MonoBehaviour:
   lungeDistance: 5
   lungeWindup: 1
   lungeRecovery: 5
-  hitRecovery: 5
 --- !u!114 &539491619042680570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,6 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: {fileID: 1838456798779756823}
+  hitState: {fileID: 489798866967860510}
   health: 3
   damage: 10
   hitRecoveryTime: 5

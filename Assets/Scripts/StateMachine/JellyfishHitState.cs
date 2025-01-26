@@ -1,16 +1,17 @@
 using System.Collections;
 using UnityEngine;
 
-public class HitState : State
+public class JellyfishHitState : State
 {
-    public ChaseState chaseState;
+    public AttackState attackState;
 
     private Coroutine hitRecovery;
 
     private bool recovered = false;
 
-    [SerializeField] private AIAgent aiAgent;
     [SerializeField] private StateManager stateManager;
+
+    [SerializeField] private JellyfishAstar jellyfishPathfinding;
 
     public override State RunCurrentState()
     {
@@ -21,7 +22,7 @@ public class HitState : State
         else if (recovered == true)
         {
             recovered = false;
-            return chaseState;
+            return attackState;
         }
 
         return this;
@@ -29,13 +30,13 @@ public class HitState : State
 
     private IEnumerator recoverFromHit()
     {
-        if (aiAgent != null)
+        if (stateManager != null)
         {
-            aiAgent.currentMoveSpeed = 0f;
+            jellyfishPathfinding.canMove = false;
 
             yield return new WaitForSeconds(stateManager.hitRecoveryTime);
 
-            aiAgent.currentMoveSpeed = aiAgent.moveSpeed;
+            jellyfishPathfinding.canMove = true;
         }
         else
         {

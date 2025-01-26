@@ -15,7 +15,6 @@ public class AIAgent : MonoBehaviour
     public float lungeDistance = 5;
     public float lungeWindup = 5;
     public float lungeRecovery = 5;
-    public float hitRecovery = 5;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
