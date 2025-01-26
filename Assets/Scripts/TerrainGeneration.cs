@@ -18,13 +18,16 @@ public class TerrainGeneration : MonoBehaviour
     public Tilemap tileMap;
     public RuleTile tile;
 
+    public Tilemap grassMap;
+    public Tile grassTile;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartCoroutine(GenerateTerrain());
     }
 
-    private void GenerateNoise()
+    private void GenerateWalls()
     {
         var randomizerX = Random.Range(0, height * 2);
         var randomizerY = Random.Range(0, height * 2);
@@ -55,10 +58,36 @@ public class TerrainGeneration : MonoBehaviour
         //AstarPath.active.Scan();
     }
 
+    private void GenerateGrass()
+    {
+        var randomizerX = Random.Range(0, height * 2);
+        var randomizerY = Random.Range(0, height * 2);
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                float noise = Mathf.PerlinNoise((float)(x + randomizerX) / width * magnitude, (float)(y + randomizerY) / height * magnitude);
+                Vector2Int pos = new Vector2Int(x - width / 2, y - height / 2);
+
+                if (noise > Mathf.Min(threshold, (width / falloff) / Vector2.Distance(Vector2.zero, pos)))
+                {
+                    SpawnGrass(pos.x, pos.y);
+                }
+            }
+        }
+    }
+
     private void SpawnWalls(int x, int y)
     {
         Vector3Int pos = new Vector3Int(x, y, 0);
         tileMap.SetTile(pos, tile);
+    }
+
+    private void SpawnGrass(int x, int y)
+    {
+        Vector3Int pos = new Vector3Int(x, y, 0);
+        grassMap.SetTile(pos, grassTile);
     }
 
     // Update is called once per frame
@@ -74,7 +103,8 @@ public class TerrainGeneration : MonoBehaviour
     // Wait for terrain generation to be finished, then rescan the pathfinding graph
     private IEnumerator GenerateTerrain()
     {
-        GenerateNoise();
+        GenerateWalls();
+        GenerateGrass();
 
         yield return new WaitForSeconds(0.1f);
 

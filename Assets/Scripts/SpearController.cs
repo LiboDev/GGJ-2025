@@ -46,8 +46,8 @@ public class SpearController : MonoBehaviour
 
     public IEnumerator Throw(float speed)
     {
-        
-
+        hit = false;
+        returning = false;
         thrown = true;
 
         this.speed = speed;
@@ -78,19 +78,11 @@ public class SpearController : MonoBehaviour
         {
             if (other.gameObject.tag == "Terrain")
             {
-                Debug.Log("grapple");
-                StartCoroutine(playerController.Grapple());
-                hit = true;
-                returning = true;
-                rb.linearVelocity = Vector3.zero;
+                
             }
             else if(other.gameObject.tag == "Enemy")
             {
-                Debug.Log("hook");
-                StartCoroutine(Hook(other.transform));
-                hit = true;
-                returning = true;
-                rb.linearVelocity = Vector3.zero;
+                //other.gameObject.GetComponent<EnemyController>().Damage();
             }
         }
 
@@ -102,6 +94,8 @@ public class SpearController : MonoBehaviour
         {
             if (other.gameObject.tag == "Terrain")
             {
+                rb.linearVelocity = Vector2.zero;
+
                 Debug.Log("grapple");
                 StartCoroutine(playerController.Grapple());
                 hit = true;
@@ -110,6 +104,8 @@ public class SpearController : MonoBehaviour
             }
             else if (other.gameObject.tag == "Enemy")
             {
+                rb.linearVelocity = Vector2.zero;
+
                 Debug.Log("hook");
                 StartCoroutine(Hook(other.transform));
                 hit = true;

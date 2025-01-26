@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
 
     private float timeElapsed = 0f;
 
+    private float oxygen = 10;
+    private float health = 10;
+
     //scene
     private Vector3 mousePos;
 
@@ -125,5 +128,30 @@ public class PlayerController : MonoBehaviour
         spearThrown = false;
 
         StartCoroutine(spearController.Return());
+    }
+
+    public void ChangeOxygen(int amount)
+    {
+        float pot = oxygen + amount;
+
+        if(pot >= 10)
+        {
+            oxygen = 10;
+        }
+        else if(pot < 0)
+        {
+            oxygen = 0;
+            GameOver();
+        }
+        else
+        {
+            oxygen = pot;
+        }
+    }
+
+    private void GameOver()
+    {
+        //game over
+        Debug.Log("GAME OVER");
     }
 }
