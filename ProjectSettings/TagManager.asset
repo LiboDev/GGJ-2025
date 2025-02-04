@@ -53,11 +53,11 @@ TagManager:
   - name: LowFX
     uniqueID: 602671281
     locked: 0
-  - name: Entities
-    uniqueID: 3509590595
-    locked: 0
   - name: Projectiles
     uniqueID: 563151953
+    locked: 0
+  - name: Entities
+    uniqueID: 3509590595
     locked: 0
   - name: Terrain
     uniqueID: 3913281425

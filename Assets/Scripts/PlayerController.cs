@@ -25,11 +25,13 @@ public class PlayerController : MonoBehaviour
 
     private float timeElapsed = 0f;
 
-    private int oxygen = 10;
+    private float oxygen = 10;
     [SerializeField] private int health = 10;
 
     //scene
     private Vector3 mousePos;
+
+    public GameObject blood;
 
     public GameObject spear;
     public GameObject knife;
@@ -38,12 +40,16 @@ public class PlayerController : MonoBehaviour
     public Material newMaterial;
 
     public Slider slider;
+    public Slider oxygenSlider;
 
     public SpriteRenderer spriteRenderer;
 
     private Animator animator;
 
-void Start()
+    public GameObject gameOverScreen;
+    public ScoreManager scoreManager;
+
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -55,6 +61,8 @@ void Start()
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
+
+        ChangeOxygen(-Time.deltaTime*0.1f);
     }
 
     private IEnumerator Action()
@@ -149,9 +157,9 @@ void Start()
         StartCoroutine(spearController.Return());
     }
 
-    public void ChangeOxygen(int amount)
+    public void ChangeOxygen(float amount)
     {
-        int pot = oxygen + amount;
+        float pot = oxygen + amount;
 
         if(pot >= 10)
         {
@@ -166,6 +174,8 @@ void Start()
         {
             oxygen = pot;
         }
+
+        oxygenSlider.value = oxygen;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -201,41 +211,44 @@ void Start()
     //player health
     public void ChangeHealth(int change)
     {
-        int pot = change + health;
+        ChangeOxygen(change);
+        AudioManager.Instance.PlaySFX("PlayerDamage" + Random.Range(1, 4), 0.5f);
+        Instantiate(blood, transform.position, Quaternion.identity);
+        /*        int pot = change + health;
 
-        if(change < 0)
-        {
-            //play sound for player taking damage
+                if(change < 0)
+                {
+                    //play sound for player taking damage
 
-            AudioManager.Instance.PlaySFX("PlayerDamage" + Random.Range(1, 4), 0.5f);
-/*            StartCoroutine(Flash());*/
-        }
+                    AudioManager.Instance.PlaySFX("PlayerDamage" + Random.Range(1, 4), 0.5f);
+        *//*            StartCoroutine(Flash());*//*
+                }
 
-        if (pot > 10)
-        {
-            health = 10;
-        }
-        else if (pot < 1)
-        {
-            //game over
-            ScoreManager.Instance.GameOver();
-            
-            AudioManager.Instance.PlaySFX("Death" + Random.Range(1, 3), 0.5f);
-            AudioManager.Instance.PlaySFX("GameOver", 0.5f);
+                if (pot > 10)
+                {
+                    health = 10;
+                }
+                else if (pot < 1)
+                {
+                    //game over
+                    ScoreManager.Instance.GameOver();
 
-            health = 0;
+                    AudioManager.Instance.PlaySFX("Death" + Random.Range(1, 3), 0.5f);
+                    AudioManager.Instance.PlaySFX("GameOver", 0.5f);
 
-            enabled = false;
-        }
-        else
-        {
-            health = pot;
-        }
+                    health = 0;
 
-        if (slider != null)
-        {
-            slider.value = health;
-        }
+                    GameOver();
+                }
+                else
+                {
+                    health = pot;
+                }
+
+                if (slider != null)
+                {
+                    slider.value = health;
+                }*/
     }
 
     //when spawnpoint enters radius, enable
@@ -259,6 +272,17 @@ void Start()
     private void GameOver()
     {
         //game over
+
+        scoreManager.GameOver();
+
+        AudioManager.Instance.PlaySFX("Death" + Random.Range(1, 3), 0.5f);
+        AudioManager.Instance.PlaySFX("GameOver", 0.5f);
+
+        gameOverScreen.SetActive(true);
         Debug.Log("GAME OVER");
+
+        Time.timeScale = 0f;
+
+        //enabled = false;
     }
 }

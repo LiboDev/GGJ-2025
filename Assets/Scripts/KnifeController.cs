@@ -40,9 +40,6 @@ public class KnifeController : MonoBehaviour
 
             AudioManager.Instance.PlaySFX("KnifeHitEnemy" + Random.Range(1, 4), 0.3f);
 
-            CameraShake.Instance.ShakeCamera(10f, 0.1f);
-            CameraShake.Instance.FreezeFrame(0.1f);
-
             Instantiate(enemyParticles, other.transform.position, Quaternion.identity);
 
             //deal damage and knockback relative to pos

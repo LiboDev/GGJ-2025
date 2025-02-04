@@ -1,0 +1,1092 @@
+fileFormatVersion: 2
+guid: d473fc775aebd794fbe02d560bfb0acb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8234285522403937569
+    second: plant_tile_0
+  - first:
+      213: 3752067213155673630
+    second: plant_tile_1
+  - first:
+      213: -7089980538663909643
+    second: plant_tile_2
+  - first:
+      213: 4667803299303006779
+    second: plant_tile_3
+  - first:
+      213: 8220577956245443235
+    second: plant_tile_4
+  - first:
+      213: -3178273664372832236
+    second: plant_tile_5
+  - first:
+      213: 8923982229247057486
+    second: plant_tile_6
+  - first:
+      213: 6241149347667423260
+    second: plant_tile_7
+  - first:
+      213: 5677613028657717082
+    second: plant_tile_8
+  - first:
+      213: 6577960680469208518
+    second: plant_tile_9
+  - first:
+      213: 2080930962361263352
+    second: plant_tile_10
+  - first:
+      213: -1646249603177298759
+    second: plant_tile_11
+  - first:
+      213: -4607762915076007297
+    second: plant_tile_12
+  - first:
+      213: -5775336407434829437
+    second: plant_tile_13
+  - first:
+      213: -1025573932316017291
+    second: plant_tile_14
+  - first:
+      213: -9020304444192698171
+    second: plant_tile_15
+  - first:
+      213: 6775853594677616167
+    second: plant_tile_16
+  - first:
+      213: 3285020373012723776
+    second: plant_tile_17
+  - first:
+      213: -2447242847257910804
+    second: plant_tile_18
+  - first:
+      213: 7097321689484010784
+    second: plant_tile_19
+  - first:
+      213: 7095556310551326151
+    second: plant_tile_20
+  - first:
+      213: -7392644162903879825
+    second: plant_tile_21
+  - first:
+      213: -9149701273849057868
+    second: plant_tile_22
+  - first:
+      213: 5576262899374590029
+    second: plant_tile_23
+  - first:
+      213: -8682346970809581700
+    second: plant_tile_24
+  - first:
+      213: 7418530953161824673
+    second: plant_tile_25
+  - first:
+      213: -8663818994743783507
+    second: plant_tile_26
+  - first:
+      213: -6573089095505924497
+    second: plant_tile_27
+  - first:
+      213: 4881327295505995982
+    second: plant_tile_28
+  - first:
+      213: 6160339184992856280
+    second: plant_tile_29
+  - first:
+      213: 4501878938719813792
+    second: plant_tile_30
+  - first:
+      213: -3870645813157711093
+    second: plant_tile_31
+  - first:
+      213: -7282521534102994937
+    second: plant_tile_32
+  - first:
+      213: 5309288108514482039
+    second: plant_tile_33
+  - first:
+      213: -6053321515813405425
+    second: plant_tile_34
+  - first:
+      213: -2182813304682665195
+    second: plant_tile_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 600
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: plant_tile_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 436
+        width: 175
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd2b8f9c1f0f9bd80800000000000000
+      internalID: -8234285522403937569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_1
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 563
+        width: 31
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e16a8854045021430800000000000000
+      internalID: 3752067213155673630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 522
+        width: 79
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f64180b3445b9d90800000000000000
+      internalID: -7089980538663909643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_3
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 474
+        width: 108
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b322a50ae5e57c040800000000000000
+      internalID: 4667803299303006779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_4
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 557
+        width: 44
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a29a62c81c551270800000000000000
+      internalID: 8220577956245443235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_5
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 514
+        width: 27
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 418041401f084e3d0800000000000000
+      internalID: -3178273664372832236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_6
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 522
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4e5b246e8a58db70800000000000000
+      internalID: 8923982229247057486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_7
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 464
+        width: 72
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c10b0e1c3440d9650800000000000000
+      internalID: 6241149347667423260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_8
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 350
+        width: 148
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5fd541e7feeace40800000000000000
+      internalID: 5677613028657717082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_9
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 513
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cd9ad9236c994b50800000000000000
+      internalID: 6577960680469208518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_10
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 466
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f4a7ad5fa3f0ec10800000000000000
+      internalID: 2080930962361263352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_11
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 439
+        width: 62
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b44df645b85729e0800000000000000
+      internalID: -1646249603177298759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_12
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 349
+        width: 114
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7a1dadaa00fd00c0800000000000000
+      internalID: -4607762915076007297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_13
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 436
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3816770f222e9dfa0800000000000000
+      internalID: -5775336407434829437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_14
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 434
+        width: 23
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57d376931fd64c1f0800000000000000
+      internalID: -1025573932316017291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_15
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 234
+        width: 164
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c0540e46e071d280800000000000000
+      internalID: -9020304444192698171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_16
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 380
+        width: 35
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72e10d0c1faa80e50800000000000000
+      internalID: 6775853594677616167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_17
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 368
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 048385ddf9cb69d20800000000000000
+      internalID: 3285020373012723776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_18
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 231
+        width: 126
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce1a312b895a90ed0800000000000000
+      internalID: -2447242847257910804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_19
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 350
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 025ae5e2970ce7260800000000000000
+      internalID: 7097321689484010784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_20
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 230
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cd613ededa787260800000000000000
+      internalID: 7095556310551326151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_21
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 129
+        width: 131
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6fcf3f3d4d086990800000000000000
+      internalID: -7392644162903879825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_22
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 198
+        width: 116
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bda94b2b2bb50180800000000000000
+      internalID: -9149701273849057868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_23
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 226
+        width: 79
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d48896b009dd26d40800000000000000
+      internalID: 5576262899374590029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_24
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 162
+        width: 63
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7fb43c5e6b128780800000000000000
+      internalID: -8682346970809581700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_25
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 28
+        width: 156
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a9537ac89ae3f660800000000000000
+      internalID: 7418530953161824673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_26
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 35
+        width: 128
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dafc304f68ee3c780800000000000000
+      internalID: -8663818994743783507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_27
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 186
+        width: 42
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6e20691b42b7c4a0800000000000000
+      internalID: -6573089095505924497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_28
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 142
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec89d091055fdb340800000000000000
+      internalID: 4881327295505995982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_29
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 99
+        width: 21
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d82b6199dbed7550800000000000000
+      internalID: 6160339184992856280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 116
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a00534fa03e97e30800000000000000
+      internalID: 4501878938719813792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_31
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 128
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b03b167f324b84ac0800000000000000
+      internalID: -3870645813157711093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_32
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 130
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70088aacf394fea90800000000000000
+      internalID: -7282521534102994937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_33
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 24
+        width: 34
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7771636a7616ea940800000000000000
+      internalID: 5309288108514482039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_34
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 27
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0d76ba37284efba0800000000000000
+      internalID: -6053321515813405425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_35
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 0
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51ba46b4dd615b1e0800000000000000
+      internalID: -2182813304682665195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      plant_tile_0: -8234285522403937569
+      plant_tile_1: 3752067213155673630
+      plant_tile_10: 2080930962361263352
+      plant_tile_11: -1646249603177298759
+      plant_tile_12: -4607762915076007297
+      plant_tile_13: -5775336407434829437
+      plant_tile_14: -1025573932316017291
+      plant_tile_15: -9020304444192698171
+      plant_tile_16: 6775853594677616167
+      plant_tile_17: 3285020373012723776
+      plant_tile_18: -2447242847257910804
+      plant_tile_19: 7097321689484010784
+      plant_tile_2: -7089980538663909643
+      plant_tile_20: 7095556310551326151
+      plant_tile_21: -7392644162903879825
+      plant_tile_22: -9149701273849057868
+      plant_tile_23: 5576262899374590029
+      plant_tile_24: -8682346970809581700
+      plant_tile_25: 7418530953161824673
+      plant_tile_26: -8663818994743783507
+      plant_tile_27: -6573089095505924497
+      plant_tile_28: 4881327295505995982
+      plant_tile_29: 6160339184992856280
+      plant_tile_3: 4667803299303006779
+      plant_tile_30: 4501878938719813792
+      plant_tile_31: -3870645813157711093
+      plant_tile_32: -7282521534102994937
+      plant_tile_33: 5309288108514482039
+      plant_tile_34: -6053321515813405425
+      plant_tile_35: -2182813304682665195
+      plant_tile_4: 8220577956245443235
+      plant_tile_5: -3178273664372832236
+      plant_tile_6: 8923982229247057486
+      plant_tile_7: 6241149347667423260
+      plant_tile_8: 5677613028657717082
+      plant_tile_9: 6577960680469208518
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -10,9 +10,9 @@ public class EnemySpawner : MonoBehaviour
     //enemyspawner
     public void Spawn()
     {
-        var rand = Random.Range(0, enemies.Count+1);
+        var rand = Random.Range(0, enemies.Count * 2);
 
-        if (rand == enemies.Count)
+        if (rand >= enemies.Count)
         {
             GameObject bubbleBundle = Instantiate(bubbleBundleObject, transform.position, Quaternion.identity);
         }
@@ -32,5 +32,7 @@ public class EnemySpawner : MonoBehaviour
             Vector2 force = Random.insideUnitCircle * 3;
             enemy.GetComponent<Rigidbody2D>().linearVelocity = force;*/
         }
+
+        Destroy(gameObject);
     }
 }

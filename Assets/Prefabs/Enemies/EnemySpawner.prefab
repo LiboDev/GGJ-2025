@@ -47,7 +47,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 7452096099010404604, guid: 92bc1941b79753749b58cd186054f5ab, type: 3}
+  - {fileID: 7452096099010404604, guid: 92bc1941b79753749b58cd186054f5ab, type: 3}
+  - {fileID: 7452096099010404604, guid: 92bc1941b79753749b58cd186054f5ab, type: 3}
   - {fileID: 7452096099010404604, guid: 558329aed57045c41953be50669280c2, type: 3}
+  - {fileID: 7452096099010404604, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
+  - {fileID: 7452096099010404604, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
   - {fileID: 7452096099010404604, guid: ce8619954a82d6f4dbb1b2139bee14b8, type: 3}
   bubbleBundleObject: {fileID: 7860838309276399923, guid: 7c24462c03b55df41b030a19b1dfc6f8, type: 3}
 --- !u!61 &2796092321151407646

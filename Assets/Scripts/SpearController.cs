@@ -24,6 +24,11 @@ public class SpearController : MonoBehaviour
 
     private float targetAngle;
 
+    public GameObject enemyParticles;
+    public GameObject wallParticles;
+
+    public TrailRenderer trailRenderer;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -47,6 +52,8 @@ public class SpearController : MonoBehaviour
 
     public IEnumerator Throw(float speed)
     {
+        trailRenderer.enabled = true;
+
         AudioManager.Instance.PlaySFX("SpearThrow" + Random.Range(1, 4), 0.2f);
 
         hit = false;
@@ -65,6 +72,8 @@ public class SpearController : MonoBehaviour
         bc.enabled = true;
 
         yield return new WaitUntil(() => rb.linearVelocity.magnitude < 0.1f);
+
+        trailRenderer.enabled = false;
 
         if (collided == false)
         {
@@ -87,15 +96,19 @@ public class SpearController : MonoBehaviour
         {
             if (other.gameObject.tag == "Terrain")
             {
+                
                 //AudioManager.Instance.PlaySFX("SpearHitWall" + Random.Range(1, 4), 1f);
             }
             else if(other.gameObject.tag == "Enemy")
             {
+                CameraShake.Instance.ShakeCamera(10f, 0.1f);
+                CameraShake.Instance.FreezeFrame(0.1f);
                 AudioManager.Instance.PlaySFX("SpearHitEnemy" + Random.Range(1, 4), 1f);
+                Instantiate(enemyParticles, other.transform.position, Quaternion.identity);
+
                 //other.gameObject.GetComponent<EnemyController>().Damage();
             }
         }
-
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -104,6 +117,8 @@ public class SpearController : MonoBehaviour
         {
             if (other.gameObject.tag == "Terrain")
             {
+                Instantiate(wallParticles, transform.position + transform.right, Quaternion.identity);
+
                 AudioManager.Instance.PlaySFX("SpearHitWall" + Random.Range(1, 4), 1f);
                 rb.linearVelocity = Vector2.zero;
 
@@ -126,6 +141,8 @@ public class SpearController : MonoBehaviour
                 rb.linearVelocity = Vector3.zero;
 
                 collided = true;
+
+                CameraShake.Instance.ShakeCamera(5f, 0.1f);
             }
         }
 
@@ -163,7 +180,7 @@ public class SpearController : MonoBehaviour
             {
                 enemy.parent = transform;
                 
-                while (enemy != null && Vector2.Distance(enemy.position, handTransform.position) > 2)
+                while (enemy != null && Vector2.Distance(transform.position, handTransform.position) > 3)
                 {
                     Vector2 direction = handTransform.position - transform.position;
                     float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

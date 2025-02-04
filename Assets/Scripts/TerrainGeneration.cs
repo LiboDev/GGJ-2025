@@ -3,6 +3,7 @@ using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 using Pathfinding;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TerrainGeneration : MonoBehaviour
 {
@@ -41,10 +42,7 @@ public class TerrainGeneration : MonoBehaviour
                 float noise = Mathf.PerlinNoise((float)(x + randomizerX) / width * magnitude, (float)(y + randomizerY) / height * magnitude);
                 Vector2Int pos = new Vector2Int(x - width / 2, y - height / 2);
 
-                if (noise < 0.05f && Vector2.Distance(Vector2.zero, pos) < width / 2 - 2)
-                {
-                    Instantiate(enemySpawner, new Vector3(pos.x, pos.y, 0), Quaternion.identity);
-                }
+
 
                 if (Vector2.Distance(Vector2.zero, pos) > width/2 - 2)
                 {
@@ -65,6 +63,19 @@ public class TerrainGeneration : MonoBehaviour
             }
         }
 
+        for (int x = 0; x < width; x += 2)
+        {
+            for (int y = 0; y < height; y += 2)
+            {
+                float noise = Mathf.PerlinNoise((float)(x + randomizerX) / width * magnitude, (float)(y + randomizerY) / height * magnitude);
+                Vector2Int pos = new Vector2Int(x - width / 2, y - height / 2);
+
+                if (noise < 0.1f && Vector2.Distance(Vector2.zero, pos) < width / 2 - 2)
+                {
+                    Instantiate(enemySpawner, new Vector3(pos.x, pos.y, 0), Quaternion.identity);
+                }
+            }
+        }
         //AstarPath.active.Scan();
     }
 
@@ -119,5 +130,10 @@ public class TerrainGeneration : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         AstarPath.active.Scan();
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

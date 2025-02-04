@@ -5,12 +5,14 @@ public class BubbleController : MonoBehaviour
 {
     private float oxygen;
 
+    public GameObject pop;
+
     void Start()
     {
         oxygen = Random.Range(1, 4);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player")
         {
@@ -29,6 +31,7 @@ public class BubbleController : MonoBehaviour
     private void SelfDestruct()
     {
         AudioManager.Instance.PlaySFX("Pop"+Random.Range(1,3),0.5f);
+        Instantiate(pop, transform.position, Quaternion.identity);
 
         Destroy(gameObject);
     }
